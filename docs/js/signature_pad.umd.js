@@ -243,7 +243,6 @@
         };
         SignaturePad.prototype.on = function () {
             this.canvas.style.touchAction = 'none';
-            this.canvas.style.msTouchAction = 'none';
             if (window.PointerEvent) {
                 this._handlePointerEvents();
             }
@@ -256,7 +255,6 @@
         };
         SignaturePad.prototype.off = function () {
             this.canvas.style.touchAction = 'auto';
-            this.canvas.style.msTouchAction = 'auto';
             this.canvas.removeEventListener('pointerdown', this._handleMouseDown);
             this.canvas.removeEventListener('pointermove', this._handleMouseMove);
             document.removeEventListener('pointerup', this._handleMouseUp);
@@ -298,6 +296,10 @@
             this._strokeUpdate(event);
         };
         SignaturePad.prototype._strokeUpdate = function (event) {
+            if (this._data.length === 0) {
+                this._strokeBegin(event);
+                return;
+            }
             var x = event.clientX;
             var y = event.clientY;
             var point = this._createPoint(x, y);
