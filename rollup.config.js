@@ -45,7 +45,8 @@ export default [
     output: {
       // dir: 'dist',
       file: 'dist/signature_pad.js',
-      format: 'es',
+      format: 'umd',
+      name: 'SignaturePad',
       sourcemap: false,
       banner,
     },
@@ -57,7 +58,8 @@ export default [
     output: {
       // dir: 'dist',
       file: 'dist/signature_pad.min.js',
-      format: 'es',
+      format: 'umd',
+      name: 'SignaturePad',
       sourcemap: false,
       plugins: [terser()],
       banner,
