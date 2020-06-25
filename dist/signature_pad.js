@@ -491,4 +491,3 @@ class SignaturePad {
 }
 
 export default SignaturePad;
-//# sourceMappingURL=signature_pad.js.map
